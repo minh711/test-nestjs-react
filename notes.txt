@@ -1,0 +1,146 @@
+npm run typeorm migration:generate ./src/app/databases/postgres/migrations -d ./src/app/databases/postgres/data-sources/postgres-data-source.ts
+
+npm run typeorm migration:generate -- -d ./src/app/databases/database.module.ts
+
+npm run typeorm migration:create ./src/app/databases/postgres/migrations/migration
+
+npm run typeorm migration:generate -d ./src/app/databases/postgres/data-sources/postgres-data-source.ts ./src/app/databases/postgres/migrations
+
+npm run typeorm migration:generate ./src/app/databases/postgres/migrations -- -d ./src/app/databases/postgres/data-sources/postgres-data-source.ts
+
+npm run typeorm migration:create ./src/app/databases/postgres/migrations/CreateAccount
+
+npm run typeorm migration:run -- -d ./src/app/databases/postgres/data-sources/postgres-data-source.ts
+
+
+
+
+
+----
+
+npx create-nx-workspace [workspace name]
+
+ >  NX   Let's create a new workspace [https://nx.dev/getting-started/intro]
+
+? Which stack do you want to use? ... 
+None:          Configures a TypeScript/JavaScript project with minimal structure.
+
+? Package-based monorepo, integrated monorepo, or standalone project? ...
+Integrated Monorepo:        Nx creates a monorepo that contains multiple projects.
+
+
+ >  NX   First time using Nx? Check out this interactive Nx tutorial.
+
+   https://nx.dev/getting-started/tutorials/package-based-repo-tutorial
+   
+
+nx add @nx/nest
+
+nx g @nx/nest:app api-gateway --e2eTestRunner none 
+
+>  NX  Generating @nx/nest:application
+
+√ What should be the project name and where should it be generated? · api-gateway @ apps/api-gateway
+In Nx 19, generating projects will no longer derive the name and root.
+Please provide the exact project name and root in the future.
+Example: nx g @nx/nest:application api-gateway --directory apps/api-gateway
+In Nx 19, generating projects will no longer derive the name and root.
+Please provide the exact project name and root in the future.
+Example: nx g @nx/node:application api-gateway --directory apps/api-gateway
+
+
+
+
+
+nx add @nx/react
+
+nx g @nx/react:app client --e2eTestRunner none 
+
+>  NX  Generating @nx/react:application
+
+√ Which stylesheet format would you like to use? · scss
+√ Would you like to add React Router to this application? (y/N) · false
+√ Which bundler do you want to use to build the application? · webpack
+√ What should be the project name and where should it be generated? · client @ apps/client
+In Nx 19, generating projects will no longer derive the name and root.
+Please provide the exact project name and root in the future.
+Example: nx g @nx/react:application client --directory apps/client
+
+>  NX  Generating @nx/react:application
+
+√ Which stylesheet format would you like to use? · scss
+√ Would you like to add React Router to this application? (y/N) · false
+√ Which E2E test runner would you like to use? · none
+√ Which bundler do you want to use to build the application? · vite
+√ What should be the project name and where should it be generated? · my-new-app @ apps/my-new-app
+In Nx 19, generating projects will no longer derive the name and root.
+Please provide the exact project name and root in the future.
+Example: nx g @nx/react:application my-new-app --directory apps/my-new-app
+Fetching @nx/vite...
+
+--e2eTestRunner none 
+
+
+
+@nestjs/graphql @nestjs/apollo @apollo/server graphql dotenv @nestjs/config @nestjs/typeorm typeorm pg class-validator class-transformer
+
+
+import { getJestProjects } from '@nx/jest';
+
+export default {
+  displayName: 'test-nestjs-react',
+  projects: getJestProjects(),
+};
+
+
+nx g @nx/nest:app my-nest-app-2 --e2eTestRunner none 
+
+
+npx nx run api:serve:development
+
+npx nx run api-gateway:serve:development
+
+npx nx run client:serve
+
+npx nx run-many --target=serve --exclude=client,api-gateway --parallel
+
+
+
+
+
+
+
+
+@apollo/federation @apollo/subgraph 
+
+@apollo/gateway
+
+
+
+
+
+> project.json "target"
+
+"build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/api-gateway",
+        "main": "apps/api-gateway/src/main.ts",
+        "tsConfig": "apps/api-gateway/tsconfig.app.json",
+        "assets": ["apps/api-gateway/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/api-gateway/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+	
+	
+	
+@apollo/client
