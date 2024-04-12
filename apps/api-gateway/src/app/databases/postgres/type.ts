@@ -1,3 +1,5 @@
+import { Stream } from "stream";
+
 export interface IAccount {
   id: number;
   username: string;
@@ -8,4 +10,5 @@ export interface IAccount {
   age: number;
   createdAt: Date;
   updatedAt: Date;
+  avatar: string;
 }

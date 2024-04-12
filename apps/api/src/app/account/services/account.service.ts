@@ -4,11 +4,13 @@ import { Account } from '../../entities/account.entity';
 import { Repository } from 'typeorm';
 import { CreateAccountInput } from '../dto/create-account.input';
 import { UpdateAccountInput } from '../dto/update-account.input';
+import { createWriteStream } from 'fs';
+import path from 'path';
 
 @Injectable()
 export class AccountService {
   constructor(
-    @InjectRepository(Account) private accountRepository: Repository<Account>,
+    @InjectRepository(Account) private accountRepository: Repository<Account>
   ) {}
 
   async findAll(): Promise<Account[]> {
@@ -37,7 +39,7 @@ export class AccountService {
 
   async update(
     id: number,
-    updateAccountInput: UpdateAccountInput,
+    updateAccountInput: UpdateAccountInput
   ): Promise<Account> {
     await this.accountRepository.update(id, updateAccountInput);
     return await this.accountRepository.findOneOrFail({ where: { id } });

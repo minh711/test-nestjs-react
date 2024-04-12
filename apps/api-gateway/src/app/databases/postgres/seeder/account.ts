@@ -11,6 +11,7 @@ export const accounts: IAccount[] = [
     age: 30,
     createdAt: new Date('2024-02-14T17:30:00'),
     updatedAt: new Date('2024-02-14T17:30:00'),
+    avatar: 'test',
   },
   {
     id: 2,
@@ -22,5 +23,6 @@ export const accounts: IAccount[] = [
     age: 25,
     createdAt: new Date('2024-02-14T17:30:00'),
     updatedAt: new Date('2024-02-14T17:30:00'),
+    avatar: '',
   },
 ];
